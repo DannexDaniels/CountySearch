@@ -1,0 +1,42 @@
+<html>
+	<head>
+
+		var name = <%=names%>;
+		var location = <%=location%>;
+		var description = <%=description%>;
+		var type = <%=type%>;
+		var rating = <%=rate%>;
+		var category = <%=category%>;
+
+		var long = <%=longitude%>;
+		var lat = <%=latitude%>;
+
+
+	</head>
+	<body>
+		<h3>NODE JS TRIAL</h3>
+		<script type="text/javascript">
+			document.write("hey there my dear friend");
+
+            var mysql = require('mysql');
+
+            var connection = mysql.createConnection({
+                host: "localhost",
+                user: "root",
+                password: "",
+                database: "county_search"
+            });
+
+            connection.connect(function(err){
+                document.write("entered Connection");
+                if (err) throw err;
+                //console.log("Connected!");
+                connection.query("SELECT * FROM categories WHERE id='HOSP-1'", function (err,result,fields){
+                    if (err) throw err;
+                    //console.log(result);
+					document.write(result.stringifyObjects);
+                });
+            });
+		</script>
+	</body>
+</html>

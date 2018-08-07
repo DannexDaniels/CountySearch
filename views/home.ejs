@@ -1,0 +1,134 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                <meta name="description" content="">
+                    <meta name="author" content="">
+                        <title>SB Admin - Start Bootstrap Template</title>
+                        <!-- Bootstrap core CSS-->
+                        <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+                            <!-- Custom fonts for this template-->
+                            <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                                <!-- Custom styles for this template-->
+                                <link href="/css/sb-admin.css" rel="stylesheet">
+                                    <style>
+                                        #map, #pano {
+                                            float: left;
+                                            height: 40%;
+                                            width: 45%;
+                                            background-color: grey;
+                                        }
+                                    </style>
+</head>
+
+<body class="bg-dark">
+<div class="container">
+    <div class="card card-login mx-auto mt-5">
+        <div class="card-header">Search</div>
+        <div class="card-body">
+            <form id="searchForm" action="/getCoordinates" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Select Place</label>
+                    <select name="place" class="form-control">
+                        <option value="Golf Hotel">Golf Hotel</option>
+                        <option value="Tuskys">Tuskys</option>
+                        <option value="Mama Watoto" selected="selected">Mama Watoto</option>
+                        <option value="General Hospital">General Hospital</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Enter Category</label>
+                    <select name="category" class="form-control">
+                        <option value="Hotel">Hotel</option>
+                        <option value="Super Market" selected="selected">Super Market</option>
+                        <option value="Hospital">Hospital</option>
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Search"/>
+            </form>
+        </div>
+    </div>
+
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div class="row">
+        <div class="col-lg-9">
+            <div id="map" class></div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card card-login mx-auto mt-5">
+                <div class="card-header">Details</div>
+                <div class="card-body">
+                    <table border="1">
+                        <tr>
+                            <td><b>Name</b></td>
+                            <td>:</td>
+                            <td><script type="text/javascript">document.write("<%=names%>");</script></td>
+                        </tr>
+                        <tr>
+                            <td><b>Location</b></td>
+                            <td>:</td>
+                            <td><script type="text/javascript">document.write("<%=location%>");</script></td>
+                        </tr>
+                        <tr>
+                            <td><b>Description</b></td>
+                            <td>:</td>
+                            <td><script type="text/javascript">document.write("<%=description%>");</script></td>
+                        </tr>
+                        <tr>
+                            <td><b>Type</b></td>
+                            <td>:</td>
+                            <td><script type="text/javascript">document.write("<%=type%>");</script></td>
+                        </tr>
+                        <tr>
+                            <td><b>Category</b></td>
+                            <td>:</td>
+                            <td><script type="text/javascript">document.write("<%=category%>");</script></td>
+                        </tr>
+                        <tr>
+                            <td><b>Rating</b></td>
+                            <td>:</td>
+                            <td><script type="text/javascript">document.write("<%=rate%>");</script></td>
+                        </tr>
+                        <tr>
+                            <td><b>Longitude</b></td>
+                            <td>:</td>
+                            <td><script type="text/javascript">document.write(<%=longitude%>);</script></td>
+                        </tr>
+                        <tr>
+                            <td><b>Latitude</b></td>
+                            <td>:</td>
+                            <td><script type="text/javascript">document.write(<%=latitude%>);</script></td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+        // The location of Uluru
+        var uluru = {lat: <%=latitude%> , lng: <%=longitude%>};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 15, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-Vo2PAaz40-mWMhe5Dm-NnCThIVw-APo&callback=initMap">
+    </script>
+</div>
+<!-- Bootstrap core JavaScript-->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "county_search",
+  "version": "1.0.0",
+  "description": "An app that helps you find anything in a specified county in Kenya.This is to help new people in a town to find places like hospitals near them, recreation centers and many more other places.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dannex Daniels",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0"
+  }
+}
